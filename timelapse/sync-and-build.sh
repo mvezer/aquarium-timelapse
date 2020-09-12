@@ -1,8 +1,7 @@
 #!/bin/bash
 
 current_dir="$(pwd)"
-video_width="3840"
-video_height="2160"
+output_resolution="3840x2160"
 
 VAR=${2:-60}
 
@@ -19,4 +18,4 @@ echo "Clip length: $2s"
 echo "Calculated FPS: $fps"
 echo "---------------------"
 echo "Encoding video ($1)..."
-ffmpeg -framerate $fps -pattern_type glob -i "*/*.jpg" -s:v 3840x2160 -c:v libx264 -crf 17 -pix_fmt yuv420p $1
+ffmpeg -framerate $fps -pattern_type glob -i "*/*.jpg" -s:v $output_resolution -c:v libx264 -crf 17 -pix_fmt yuv420p $1
